@@ -5,14 +5,8 @@ import TopAnime from './components/TopAnime/TopAnime'
 import TopManga from './components/TopManga/TopManga'
 import TopCharacters from './components/TopCharacters/TopCharacters'
 import DetailAnime from './components/DetailAnime/DetailAnime'
+import DetailManga from './components/DetailManga/DetailManga'
 function App() {
-  // const [dataManga,setDataManga] = useState([])
-  // useEffect(()=>{
-  //   fetch("https://api.jikan.moe/v4/manga")
-  //   .then((response)=>response.json())
-  //   .then((response)=> setDataManga(response))
-  //   .catch((error)=>console.log(error))
-  // },[])
   const [dataAnime,setDataAnime] = useState([])
   const [dataCheck,setDataCheck] = useState(false)
     useEffect(()=>{
@@ -30,6 +24,7 @@ function App() {
             }
         }, 1500);
     },[])
+
   const router = createBrowserRouter([
     {
       path:"/",
@@ -45,6 +40,10 @@ function App() {
     },{
       path:"/anime/:id",
       element:<DetailAnime data={dataAnime.data}/>
+    },
+    {
+      path:"/manga/:id",
+      element:<DetailManga/>
     }
   ])
   return (

@@ -9,7 +9,7 @@ let TopAnime = (props) =>{
             <div className="content">
                 {props.check === true ? 
                 props.data.map((element,index)=>(
-                    <Card key={index} image={element.images.jpg.image_url} titre={element.title} episodes={element.episodes} score={element.score} studio={element.studios[0].name} id={index}/>
+                    <Card key={index} image={element.images.jpg.image_url} titre={element.title} episodes={element.episodes} score={element.score} studio={element.studios[0].name} link={"/anime/"+element.mal_id}/>
                 ))
                 : <h1>Loading</h1>}
             </div>
