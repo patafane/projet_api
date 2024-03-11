@@ -11,10 +11,8 @@ let DetailManga = () =>{
         .then((response)=>response.json())
         .then((response)=>setMangaData(response))
         // .then(()=>console.log(mangaData))
+        .then(()=>setCheck(true))
         .catch((error)=>console.log(error))
-        setTimeout(() => {
-            setCheck(true)
-        }, 1500);
     },[])
     return(
         <div className="detailsManga">

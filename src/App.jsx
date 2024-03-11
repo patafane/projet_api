@@ -13,16 +13,8 @@ function App() {
         fetch('https://api.jikan.moe/v4/anime')
         .then((response)=> response.json())
         .then((response)=>setDataAnime(response))
+        .then(()=>setDataCheck(true))
         .catch((error)=>console.log(error))
-        setTimeout(() => {
-            if(dataAnime){
-            setDataCheck(true)
-            console.log(dataAnime)
-            }
-            else{
-            setDataCheck(false)
-            }
-        }, 1500);
     },[])
 
   const router = createBrowserRouter([

@@ -28,10 +28,11 @@ let DetailAnime = (props) => {
         .then((response)=>response.json())
         .then((response)=>setAnimeData(response))
         .then(()=>console.log(animeData))
+        .then(()=>setCheck(true))
         .catch((error)=>console.log(error))
-        setTimeout(() => {
-            setCheck(true)
-        }, 1500);
+        // setTimeout(() => {
+        //     setCheck(true)
+        // }, 1500);
     },[])
     console.log(animeData);
     return(

@@ -9,11 +9,8 @@ let TopManga = () =>{
     fetch("https://api.jikan.moe/v4/manga")
     .then((response)=>response.json())
     .then((response)=> setDataManga(response))
+    .then(()=>setMangaCheck(true))
     .catch((error)=>console.log(error))
-    setTimeout(() => {
-        setMangaCheck(true)
-        console.log(dataManga)
-    }, 1500);
     },[])
     console.log(dataManga);
     return(
