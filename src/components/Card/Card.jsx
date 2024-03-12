@@ -8,7 +8,7 @@ let Card = (props) => {
             </div>
             <div className="infos">
                 <h3>{props.titre}</h3>
-                {props.episode?<h4><span>épisodes : </span>{props.episodes}</h4>:<h4><span>volumes : </span>{props.volumes}</h4>}
+                {props.episodes?<h4><span>épisodes : </span>{props.episodes}</h4>:<h4><span>volumes : </span>{props.volumes}</h4>}
                 <h4><span>score : </span>{props.score}</h4>
                 {props.studio?<h4><span>studio : </span>{props.studio}</h4>:<h4><span>authors : </span>{props.authors}</h4>}
             </div>
