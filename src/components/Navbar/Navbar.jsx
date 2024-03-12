@@ -3,8 +3,10 @@ import { NavLink } from "react-router-dom"
 let Navbar = ()=>{
     return(
         <nav>
-            <div className="mainTilte"> 
-                <h1>MyAnime</h1>
+            <div className="mainTitle"> 
+                <NavLink to="/">
+                    <h1>MyAnime</h1>
+                </NavLink>
             </div>
             <div className="links">
                 <NavLink to="/"><div className="test"></div>Top Anime</NavLink>
