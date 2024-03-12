@@ -2,6 +2,7 @@ import "./DetailManga.sass"
 import { useState,useEffect } from "react"
 import { useParams } from "react-router-dom"
 import Navbar from "../Navbar/Navbar"
+import { FaStar } from "react-icons/fa6";
 let DetailManga = () =>{
     const indexParams = useParams()
     const [mangaData,setMangaData] = useState(null)
@@ -21,7 +22,7 @@ let DetailManga = () =>{
             <div className="content">
                 <div className="infos">
                     <div className="mainInfos">
-                        <h1 className="titre"><span>{mangaData.data.title}</span><span className="rating">{mangaData.data.score}</span></h1>
+                        <h1 className="titre"><span>{mangaData.data.title}</span><span className="rating"><FaStar/>{mangaData.data.score}</span></h1>
                         <h1> {mangaData.data.title_japanese}</h1>
                         <h2>Synopsis :</h2>
                         <hr />

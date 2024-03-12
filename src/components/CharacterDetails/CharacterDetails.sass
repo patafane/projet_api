@@ -3,18 +3,22 @@
     height: 500px
     position: relative
     overflow: hidden
+    box-shadow: 0px 0px 1em black
     &:hover .details
         transform: translateY(0%)
     img
         width: 100%
         height: 100%
+        filter: saturate(0%)
     .details
         position: absolute
-        background-color: #160c35
-        color:  #f854ff
+        // background-color: #160c35
+        background-color: black
+        // color:  #f854ff
+        color: white
         bottom: 0
         width: 100%
-        transition: all 1s
+        transition: all 0.5s
         transform: translateY(100%)
         padding-block: 20px
         h2

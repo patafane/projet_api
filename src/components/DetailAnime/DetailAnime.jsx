@@ -2,7 +2,8 @@ import Navbar from "../Navbar/Navbar"
 import "./DetailAnime.sass"
 import { useParams } from "react-router-dom"
 import { useEffect,useState } from "react"
-let DetailAnime = (props) => {
+import { FaStar } from "react-icons/fa6";
+let DetailAnime = () => {
     const paramsId = useParams()
     const [check,setCheck] = useState(false)
     const [animeData,setAnimeData]=useState(null)
@@ -42,7 +43,7 @@ let DetailAnime = (props) => {
             <div className="content">
                 <div className="infos">
                     <div className="mainInfos">
-                        <h1 className="titre"><span>{animeData.data.title}</span><span className="rating">{animeData.data.score}</span></h1>
+                        <h1 className="titre"><span>{animeData.data.title}</span><span className="rating"><FaStar/>{animeData.data.score}</span></h1>
                         <h1> {animeData.data.title_japanese}</h1>
                         <h2>Synopsis :</h2>
                         <hr />

@@ -1,7 +1,14 @@
 .detailsManga
+    background-repeat: no-repeat
+    background-attachment: fixed
+    background-size: conver
+    min-height: 100vh
+    background-image: url("./../../assets/img/test.png")
     .content
-        padding-inline: 100px
         margin-top: 50px
+        margin-inline: 100px
+        padding: 10px
+        background-color: white
         .infos
             display: flex
             gap: 20px
@@ -10,11 +17,22 @@
                 .titre
                     display: flex
                     justify-content: space-between
+                    .rating
+                        font-weight: 100
+                        display: flex
+                        align-items: center
+                        gap: 15px
+                        svg
+                            color: rgb(236, 204, 25)
                 h3
+                    margin-block: 20px
                     span
                         font-weight: 100
                 h2
-                    color: #9b56c3
+                    // color: #9b56c3
+                    margin-block: 20px
+                p
+                    margin-block: 20px
             .imgContainer
                 width: 20%
                 img
