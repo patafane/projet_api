@@ -5,7 +5,6 @@ nav
     display: flex
     align-items: center
     justify-content: space-around
-    // background-color: #160c35
     border-bottom: solid 1px black
     color: white
     padding-block: 30px
@@ -14,10 +13,10 @@ nav
     top: 0% 
     z-index: 1
     background-color: white
+    flex-wrap: wrap
     .mainTitle
         a
             text-decoration: none
-            // color: white
             color: black
             h1
                 font-family: Jackpot 
@@ -26,7 +25,6 @@ nav
         gap: 20px
         a
             text-decoration: none
-            // color: white
             color: black
             font-size: 1.5rem
             padding-left: 5px
@@ -38,12 +36,18 @@ nav
                 height: 0%
                 position: absolute
                 width: 5px
-                // background-color: #f854ff
                 background-color: rgb(124, 124, 124)
                 left: -5px
                 transition: all 1s
         a.active
-            // color: #f854ff
             color: rgb(124, 124, 124)
         a.active .test
             height: 100%
+@media (max-width: 576px)
+    nav
+        gap: 20px
+        padding-block: 10px
+        .links
+            padding-inline: 20px
+            a
+                font-size: 1rem

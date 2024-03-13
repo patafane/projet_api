@@ -1,26 +1,34 @@
 import Navbar from "../Navbar/Navbar"
-import { useState} from "react"
+import { useState,useEffect} from "react"
 import "./TopAnime.sass"
 import Card from "../Card/Card"
-let TopAnime = (props) =>{
+let TopAnime = () =>{
     const [animeFilter, setAnimeFilter] = useState([])
     const [searchValue,setSearchValue] = useState("")
     const [selectValue,setSelectValue] = useState("toutes")
+    const [dataAnime,setDataAnime] = useState([])
+    const [dataCheck,setDataCheck] = useState(false)
+    useEffect(()=>{
+        fetch('https://api.jikan.moe/v4/anime')
+        .then((response)=> response.json())
+        .then((response)=>setDataAnime(response))
+        .then(()=>setDataCheck(true))
+        .catch((error)=>console.log(error))
+    },[])
     let handleSearch = (e)=>{
         setSearchValue(e.target.value)
-        setAnimeFilter(props.data.filter(element=>element.title.toLowerCase().includes(e.target.value.toLocaleLowerCase())))
-        console.log(animeFilter);
+        setAnimeFilter(dataAnime.data.filter(element=>element.title.toLowerCase().includes(e.target.value.toLocaleLowerCase())))
     }
     let handleSelect = (e)=>{
         setSelectValue(e.target.value)
         if(e.target.value === "-12"){
-            setAnimeFilter(props.data.filter(element=>element.episodes<12))
+            setAnimeFilter(dataAnime.data.filter(element=>element.episodes<12))
         }else if(e.target.value === "-24"){
-            setAnimeFilter(props.data.filter(element=>element.episodes<24))
+            setAnimeFilter(dataAnime.data.filter(element=>element.episodes<24))
         }else if(e.target.value === "24+"){
-            setAnimeFilter(props.data.filter(element=>element.episodes>=24))
+            setAnimeFilter(dataAnime.data.filter(element=>element.episodes>=24))
         }else{
-            setAnimeFilter(props.data.filter(element=>element.episodes>0))
+            setAnimeFilter(dataAnime.data.filter(element=>element.episodes>0))
         }
     }
     return(
@@ -37,11 +45,11 @@ let TopAnime = (props) =>{
                     </select>
                 </div>
                 <div className="animes">
-                    {props.check === true && searchValue === "" && selectValue === "toutes" ? 
-                    props.data.map((element,index)=>(
+                    {dataCheck === true && searchValue === "" && selectValue === "toutes" ? 
+                    dataAnime.data.map((element,index)=>(
                         <Card key={index} image={element.images.jpg.image_url} titre={element.title} episodes={element.episodes} score={element.score} studio={element.studios[0].name} link={"/anime/"+element.mal_id}/>
                     ))
-                    : props.check === true && searchValue != "" || selectValue != "toutes" ? animeFilter.map((element,index)=>(
+                    : dataCheck === true && searchValue != "" || selectValue != "toutes" ? animeFilter.map((element,index)=>(
                         <Card key={index} image={element.images.jpg.image_url} titre={element.title} episodes={element.episodes} score={element.score} studio={element.studios[0].name} link={"/anime/"+element.mal_id}/>
                     )) : <h1>Loading</h1>}
                 </div>

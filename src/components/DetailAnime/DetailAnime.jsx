@@ -7,33 +7,12 @@ let DetailAnime = () => {
     const paramsId = useParams()
     const [check,setCheck] = useState(false)
     const [animeData,setAnimeData]=useState(null)
-    // useEffect(()=>{
-    //     fetch('https://api.jikan.moe/v4/anime/'+props.data[parseInt(paramsId.id)].mal_id+'/themes')
-    //     .then((response)=>response.json())
-    //     .then((response)=>setThemes(response))
-    //     .catch((error)=>console.log(error))
-    //     setTimeout(() => {
-    //         if(themes){
-    //         setCheck(true)
-    //         console.log(themes)
-    //         }
-    //         else{
-    //         setCheck(false)
-    //         }
-    //     }, 1500);
-    // },[paramsId])
-    // console.log(props.data[parseInt(paramsId.id)]);
-    // console.log(themes);
         useEffect(()=>{
         fetch('https://api.jikan.moe/v4/anime/'+paramsId.id+'/full')
         .then((response)=>response.json())
         .then((response)=>setAnimeData(response))
-        .then(()=>console.log(animeData))
         .then(()=>setCheck(true))
         .catch((error)=>console.log(error))
-        // setTimeout(() => {
-        //     setCheck(true)
-        // }, 1500);
     },[])
     console.log(animeData);
     return(

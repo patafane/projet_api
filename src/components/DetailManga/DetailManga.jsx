@@ -11,7 +11,6 @@ let DetailManga = () =>{
         fetch('https://api.jikan.moe/v4/manga/'+indexParams.id+'/full')
         .then((response)=>response.json())
         .then((response)=>setMangaData(response))
-        // .then(()=>console.log(mangaData))
         .then(()=>setCheck(true))
         .catch((error)=>console.log(error))
     },[])

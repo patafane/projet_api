@@ -18,7 +18,6 @@ let TopManga = () =>{
     .then(()=>setMangaCheck(true))
     .catch((error)=>console.log(error))
     },[])
-    console.log(dataManga);
     return(
         <div className="topManga">
             <Navbar/>

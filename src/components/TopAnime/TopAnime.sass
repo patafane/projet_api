@@ -11,6 +11,7 @@
             justify-content: space-between
             padding-inline: 22%
             padding-top: 20px
+            flex-wrap: wrap
             input
                 border: solid 1px black
                 outline: 0
@@ -25,3 +26,14 @@
             row-gap: 20px
             column-gap: 50px
             padding-bottom: 50px
+@media (max-width: 576px)
+    .topAnime
+        .content
+            .inputs
+                justify-content: center
+                align-items: center
+                gap: 20px
+            .animes
+                display: flex
+                justify-content: center
+                flex-wrap: wrap

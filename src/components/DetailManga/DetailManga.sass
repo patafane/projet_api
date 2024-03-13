@@ -1,7 +1,7 @@
 .detailsManga
     background-repeat: no-repeat
     background-attachment: fixed
-    background-size: conver
+    background-size: cover
     min-height: 100vh
     background-image: url("./../../assets/img/test.png")
     .content
@@ -29,7 +29,6 @@
                     span
                         font-weight: 100
                 h2
-                    // color: #9b56c3
                     margin-block: 20px
                 p
                     margin-block: 20px
@@ -37,3 +36,18 @@
                 width: 20%
                 img
                     width: 100%
+@media (max-width: 576px)
+    .detailsManga
+        .content
+            margin-inline: 10px
+            margin-top: 10px
+            .infos
+                flex-direction: column-reverse
+                justify-content: center
+                align-items: center
+                .mainInfos
+                    width: 100%
+                    h1
+                        font-size: 1.5rem
+                .imgContainer
+                    width: 150px

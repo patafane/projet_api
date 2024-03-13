@@ -1,5 +1,4 @@
 import './App.sass'
-import { useState,useEffect } from 'react'
 import { RouterProvider,createBrowserRouter } from 'react-router-dom'
 import TopAnime from './components/TopAnime/TopAnime'
 import TopManga from './components/TopManga/TopManga'
@@ -7,20 +6,10 @@ import TopCharacters from './components/TopCharacters/TopCharacters'
 import DetailAnime from './components/DetailAnime/DetailAnime'
 import DetailManga from './components/DetailManga/DetailManga'
 function App() {
-  const [dataAnime,setDataAnime] = useState([])
-  const [dataCheck,setDataCheck] = useState(false)
-    useEffect(()=>{
-        fetch('https://api.jikan.moe/v4/anime')
-        .then((response)=> response.json())
-        .then((response)=>setDataAnime(response))
-        .then(()=>setDataCheck(true))
-        .catch((error)=>console.log(error))
-    },[])
-
   const router = createBrowserRouter([
     {
       path:"/",
-      element:<TopAnime data={dataAnime.data} check={dataCheck}/>
+      element:<TopAnime/>
     },
     {
       path:"/topManga",
@@ -31,7 +20,7 @@ function App() {
       element:<TopCharacters/>
     },{
       path:"/anime/:id",
-      element:<DetailAnime data={dataAnime.data}/>
+      element:<DetailAnime/>
     },
     {
       path:"/manga/:id",
